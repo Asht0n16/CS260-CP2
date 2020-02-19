@@ -1,0 +1,8 @@
+html, body {
+  background-color: lightgrey;
+}
+
+button {
+  clear: both;
+  margin-top: 35px;
+}
