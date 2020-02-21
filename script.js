@@ -27,7 +27,9 @@ function getJokes(e) {
   url += "?blacklistFlags=nsfw,religious,racist,sexist";
 
   // call API
-  document.getElementById('jokes').innerHTML = ""
+  document.getElementById('jokes').innerHTML = "";
+  //let pixHeight = (numJokes * 70) + 100;
+  //document.getElementById('jokes').style.height = pixHeight + "px";
   for(let i=0; i<numJokes && i<15; i++){
     //debugger;
     fetch(url)
@@ -39,14 +41,14 @@ function getJokes(e) {
         }
         return response.json();
       }).then((json) => {
-        let joke = "<p>";
+        let joke = "<div class='joke'><p>";
         if(json.type == "twopart") {
           joke += json.setup + '<br>' + json.delivery;
         }
         else {
           joke += json.joke;
         }
-        joke += "</p>"
+        joke += "</p></div>"
         document.getElementById('jokes').innerHTML += joke;
       });
     }
